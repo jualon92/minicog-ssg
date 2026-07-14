@@ -22,6 +22,7 @@ export interface Translation {
     tagline: string;
     skipToContent: string;
     languageSwitch: string;
+    opensInNewTab: string;
     back: string;
     disclaimer: string;
   };
@@ -30,11 +31,12 @@ export interface Translation {
     stop: string;
   };
   home: {
-    title: string;
     intro: string;
+    basedOn: { text: string; linkLabel: string; url: string };
     whatIsApp: { title: string; description: string };
     whatIsMiniCog: { title: string; description: string };
     whoIsThisFor: { title: string; description: string };
+    sources: { title: string; items: { label: string; url: string }[]; attribution: string };
     start: string;
   };
   beforeWeStart: {
@@ -112,6 +114,7 @@ const es: Translation = {
     tagline: 'Detección de deterioro cognitivo',
     skipToContent: 'Saltar al contenido principal',
     languageSwitch: 'English',
+    opensInNewTab: '(se abre en una pestaña nueva)',
     back: 'Volver',
     disclaimer:
       'Esta aplicación es una herramienta de apoyo para realizar una prueba de detección (screening). No reemplaza el diagnóstico ni la evaluación de un profesional de la salud.',
@@ -121,8 +124,12 @@ const es: Translation = {
     stop: 'Detener lectura',
   },
   home: {
-    title: 'Mini-Cog',
     intro: 'Guía paso a paso para realizar la prueba de detección cognitiva Mini-Cog.',
+    basedOn: {
+      text: 'Esta guía está basada en la versión oficial en español del Mini-Cog©:',
+      linkLabel: 'PDF oficial (mini-cog.com)',
+      url: 'https://mini-cog.com/wp-content/uploads/2022/09/SPANISH-Mini-Cog.pdf',
+    },
     whatIsApp: {
       title: '¿Qué es esta app?',
       description:
@@ -137,6 +144,21 @@ const es: Translation = {
       title: '¿Para quién es esto?',
       description:
         'Esta prueba está diseñada para ser administrada por una persona a otra, como un miembro de la familia o un ser querido.',
+    },
+    sources: {
+      title: 'Fuentes',
+      items: [
+        {
+          label: 'Mini-Cog© en español (PDF oficial)',
+          url: 'https://mini-cog.com/wp-content/uploads/2022/09/SPANISH-Mini-Cog.pdf',
+        },
+        {
+          label: 'Download the Mini-Cog© Instrument — mini-cog.com',
+          url: 'https://mini-cog.com/download-the-mini-cog-instrument/',
+        },
+      ],
+      attribution:
+        'Mini-Cog© S. Borson. Todos los derechos reservados. Reimpreso con permiso del autor, exclusivamente para fines clínicos y educativos.',
     },
     start: 'Iniciar',
   },
@@ -276,6 +298,7 @@ const en: Translation = {
     tagline: 'Cognitive impairment screening',
     skipToContent: 'Skip to main content',
     languageSwitch: 'Español',
+    opensInNewTab: '(opens in a new tab)',
     back: 'Go back',
     disclaimer:
       'This application is a support tool for administering a screening test. It does not replace diagnosis or evaluation by a health professional.',
@@ -285,8 +308,12 @@ const en: Translation = {
     stop: 'Stop reading',
   },
   home: {
-    title: 'Mini-Cog',
     intro: 'Step-by-step guide to administer the Mini-Cog cognitive screening test.',
+    basedOn: {
+      text: 'This guide is based on the official Standardized English Mini-Cog©:',
+      linkLabel: 'Official PDF (mini-cog.com)',
+      url: 'https://mini-cog.com/wp-content/uploads/2022/04/Standardized-English-Mini-Cog-1-19-16-EN_v1-low-1-2.pdf',
+    },
     whatIsApp: {
       title: 'What is this app?',
       description:
@@ -301,6 +328,21 @@ const en: Translation = {
       title: 'Who is this for?',
       description:
         'This test is designed to be administered by one person to another, such as a family member or loved one.',
+    },
+    sources: {
+      title: 'Sources',
+      items: [
+        {
+          label: 'Standardized English Mini-Cog© (official PDF)',
+          url: 'https://mini-cog.com/wp-content/uploads/2022/04/Standardized-English-Mini-Cog-1-19-16-EN_v1-low-1-2.pdf',
+        },
+        {
+          label: 'Download the Mini-Cog© Instrument — mini-cog.com',
+          url: 'https://mini-cog.com/download-the-mini-cog-instrument/',
+        },
+      ],
+      attribution:
+        'Mini-Cog© S. Borson. All rights reserved. Reprinted with permission of the author solely for clinical and educational purposes.',
     },
     start: 'Start',
   },

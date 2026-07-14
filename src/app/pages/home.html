@@ -1,6 +1,12 @@
 <article class="page">
-  <h1 tabindex="-1">{{ t().home.title }}</h1>
-  <p class="speech">{{ t().home.intro }}</p>
+  <h1 tabindex="-1">{{ t().home.intro }}</h1>
+  <p>
+    {{ t().home.basedOn.text }}
+    <a [href]="t().home.basedOn.url" target="_blank" rel="noopener">
+      {{ t().home.basedOn.linkLabel }}
+      <span class="visually-hidden">{{ t().common.opensInNewTab }}</span>
+    </a>
+  </p>
 
   <h2>{{ t().home.whatIsApp.title }}</h2>
   <p>{{ t().home.whatIsApp.description }}</p>
@@ -18,4 +24,19 @@
   <div class="step-nav">
     <a class="btn" [routerLink]="startUrl()">{{ t().home.start }}</a>
   </div>
+
+  <section class="sources" aria-labelledby="sources-title">
+    <h2 id="sources-title">{{ t().home.sources.title }}</h2>
+    <ul>
+      @for (source of t().home.sources.items; track source.url) {
+        <li>
+          <a [href]="source.url" target="_blank" rel="noopener">
+            {{ source.label }}
+            <span class="visually-hidden">{{ t().common.opensInNewTab }}</span>
+          </a>
+        </li>
+      }
+    </ul>
+    <p class="sources-attribution">{{ t().home.sources.attribution }}</p>
+  </section>
 </article>
