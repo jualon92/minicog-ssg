@@ -17,6 +17,11 @@ export class WordScoringPage {
   readonly lang = input.required<Lang>();
 
   protected readonly t = computed(() => TRANSLATIONS[this.lang()]);
+  protected readonly wordSetLabel = computed(() => {
+    const w = this.t().wordRegistration;
+    const index = this.state.wordSetIndex();
+    return `${w.setName} ${index + 1}: ${w.wordSets[index].join(', ')}`;
+  });
   protected readonly backUrl = computed(() => pageUrl('clockDrawing', this.lang()));
   protected readonly nextUrl = computed(() => pageUrl('clockScoring', this.lang()));
 
