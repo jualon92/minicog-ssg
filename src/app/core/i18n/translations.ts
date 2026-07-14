@@ -100,6 +100,20 @@ export interface Translation {
     cutPointHtml: string;
     interpretationHtml: string;
     interpretationLabel: string;
+    /** Per-band interpretation of the total score; {score} is replaced at runtime. */
+    interpretationByScore: {
+      belowCut: string;
+      borderline: string;
+      aboveCut: string;
+    };
+    nextSteps: { title: string; items: string[] };
+    notRated: string;
+    clockUnrated: string;
+    rateClock: string;
+    shareTitle: string;
+    share: string;
+    copy: string;
+    copied: string;
     wordRecall: string;
     clockDrawing: string;
     totalScore: string;
@@ -250,6 +264,30 @@ const es: Translation = {
     interpretationHtml:
       'Cuando se desea una mayor sensibilidad, se recomienda usar un valor de corte de <strong>&lt; 4</strong>, ya que podría indicar la necesidad de evaluaciones adicionales para determinar el estado cognitivo.',
     interpretationLabel: 'Interpretación del puntaje total',
+    interpretationByScore: {
+      belowCut:
+        'Un puntaje total de {score} sobre 5 está por debajo del valor de corte estándar (menos de 3 puntos). Este resultado sugiere la necesidad de una evaluación profesional del estado cognitivo.',
+      borderline:
+        'Un puntaje total de 3 sobre 5 no está por debajo del valor de corte estándar (menos de 3 puntos), pero sí del corte de mayor sensibilidad (menos de 4 puntos). Si nota otras señales de alerta, considere una evaluación profesional.',
+      aboveCut:
+        'Un puntaje total de {score} sobre 5 no sugiere deterioro cognitivo según los valores de corte habituales. Esto no lo descarta por completo: si la preocupación persiste, consulte a un profesional.',
+    },
+    nextSteps: {
+      title: 'Próximos pasos',
+      items: [
+        'Comparta el resultado con un médico u otro profesional de la salud, sea cual sea el puntaje: es quien puede interpretarlo en contexto.',
+        'Conserve la fecha, el puntaje y la versión de la lista de palabras. El botón «Compartir resultado» incluye todos estos datos.',
+        'Si repite la prueba más adelante, use una lista de palabras diferente.',
+      ],
+    },
+    notRated: 'Sin calificar',
+    clockUnrated:
+      'Todavía no calificó el dibujo del reloj, por lo que el puntaje total está incompleto.',
+    rateClock: 'Calificar el dibujo del reloj',
+    shareTitle: 'Resultado del test Mini-Cog',
+    share: 'Compartir resultado',
+    copy: 'Copiar resultado',
+    copied: 'Resultado copiado al portapapeles.',
     wordRecall: 'Memoria de palabras',
     clockDrawing: 'Dibujo de reloj',
     totalScore: 'Puntaje total',
@@ -433,6 +471,29 @@ const en: Translation = {
     interpretationHtml:
       'When greater sensitivity is desired, a cut point of <strong>&lt;4</strong> is recommended as it may indicate a need for further evaluation of cognitive status.',
     interpretationLabel: 'Total score interpretation',
+    interpretationByScore: {
+      belowCut:
+        'A total score of {score} out of 5 is below the standard cut point (less than 3 points). This result suggests the need for a professional evaluation of cognitive status.',
+      borderline:
+        'A total score of 3 out of 5 is not below the standard cut point (less than 3 points), but it is below the higher-sensitivity cut point (less than 4 points). If you notice other warning signs, consider a professional evaluation.',
+      aboveCut:
+        'A total score of {score} out of 5 does not suggest cognitive impairment according to the usual cut points. This does not fully rule it out: if concerns persist, consult a professional.',
+    },
+    nextSteps: {
+      title: 'Next steps',
+      items: [
+        'Share the result with a doctor or another health professional, whatever the score: they can interpret it in context.',
+        'Keep the date, the score and the word list version. The “Share result” button includes all of this.',
+        'If you repeat the test later, use a different word list.',
+      ],
+    },
+    notRated: 'Not rated',
+    clockUnrated: 'The clock drawing has not been rated yet, so the total score is incomplete.',
+    rateClock: 'Rate the clock drawing',
+    shareTitle: 'Mini-Cog test result',
+    share: 'Share result',
+    copy: 'Copy result',
+    copied: 'Result copied to the clipboard.',
     wordRecall: 'Word Recall',
     clockDrawing: 'Clock Draw',
     totalScore: 'Total score',

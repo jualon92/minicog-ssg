@@ -11,26 +11,63 @@
       </tr>
       <tr>
         <th scope="row">{{ t().results.clockDrawing }}</th>
-        <td>{{ clockPoints() }} / 2</td>
+        <td>
+          @if (clockRated()) {
+            {{ state.clockPoints() }} / 2
+          } @else {
+            {{ t().results.notRated }}
+          }
+        </td>
       </tr>
       <tr>
         <th scope="row">{{ t().results.totalScore }}</th>
-        <td>{{ state.totalPoints() }} / 5</td>
+        <td>
+          @if (clockRated()) {
+            {{ state.totalPoints() }} / 5
+          } @else {
+            —
+          }
+        </td>
       </tr>
     </tbody>
   </table>
 
   <h2>{{ t().results.interpretationLabel }}</h2>
-  <div class="callout">
-    <p [innerHTML]="t().results.cutPointHtml"></p>
-    <p [innerHTML]="t().results.interpretationHtml"></p>
-  </div>
+  @if (clockRated()) {
+    <div class="callout">
+      <p>{{ interpretation() }}</p>
+    </div>
+  } @else {
+    <div class="callout callout--warn">
+      <p>{{ t().results.clockUnrated }}</p>
+      <a class="btn btn--secondary" [routerLink]="clockScoringUrl()">
+        {{ t().results.rateClock }}
+      </a>
+    </div>
+  }
+  <p [innerHTML]="t().results.cutPointHtml"></p>
+  <p [innerHTML]="t().results.interpretationHtml"></p>
+
+  <h2>{{ t().results.nextSteps.title }}</h2>
+  <ul class="check-list">
+    @for (item of t().results.nextSteps.items; track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
 
   <div class="callout callout--warn">
     <p>{{ t().common.disclaimer }}</p>
   </div>
 
   <div class="step-nav">
-    <button type="button" class="btn" (click)="repeat()">{{ t().results.repeat }}</button>
+    @if (clockRated()) {
+      <button type="button" class="btn" (click)="share()">
+        {{ canShare() ? t().results.share : t().results.copy }}
+      </button>
+    }
+    <button type="button" class="btn btn--secondary" (click)="repeat()">
+      {{ t().results.repeat }}
+    </button>
   </div>
+  <p role="status">{{ shareStatus() }}</p>
 </article>
