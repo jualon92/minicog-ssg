@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mini-cog-test.web.app/es</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/antes-de-empezar</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/antes-de-empezar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/before-we-start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/antes-de-empezar"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/before-we-start</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/antes-de-empezar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/before-we-start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/antes-de-empezar"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/registro-tres-palabras</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/registro-tres-palabras"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/three-word-registration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/registro-tres-palabras"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/three-word-registration</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/registro-tres-palabras"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/three-word-registration"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/registro-tres-palabras"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/dibujo-del-reloj</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/dibujo-del-reloj"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/clock-drawing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/dibujo-del-reloj"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/clock-drawing</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/dibujo-del-reloj"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/clock-drawing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/dibujo-del-reloj"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/puntaje</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/puntaje"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/scoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/puntaje"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/scoring</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/puntaje"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/scoring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/puntaje"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/puntaje-reloj</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/puntaje-reloj"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/clock-score"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/puntaje-reloj"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/clock-score</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/puntaje-reloj"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/clock-score"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/puntaje-reloj"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/es/resultados</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/resultados"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/results"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/resultados"/>
+  </url>
+  <url>
+    <loc>https://mini-cog-test.web.app/en/results</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://mini-cog-test.web.app/es/resultados"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mini-cog-test.web.app/en/results"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mini-cog-test.web.app/es/resultados"/>
+  </url>
+</urlset>
