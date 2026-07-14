@@ -1,0 +1,48 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().wordRegistration.title }}</h1>
+  <p>{{ t().wordRegistration.description }}</p>
+
+  <div class="callout">
+    <p>{{ t().wordRegistration.look }}</p>
+    <p class="speech">{{ t().wordRegistration.pleaseListen }}</p>
+  </div>
+
+  <h2>{{ t().wordRegistration.wordsAre }}</h2>
+  <ul class="word-list">
+    @for (word of words(); track word) {
+      <li>{{ word }}</li>
+    }
+  </ul>
+
+  <app-tts-button [text]="spokenText()" [lang]="lang()" />
+
+  <section class="card" role="group" [attr.aria-label]="t().wordRegistration.chooseSet">
+    <p class="group-label">{{ t().wordRegistration.chooseSet }}</p>
+    <div class="option-row">
+      @for (set of t().wordRegistration.wordSets; track $index) {
+        <button
+          type="button"
+          class="btn btn--secondary"
+          [attr.aria-pressed]="state.wordSetIndex() === $index"
+          (click)="chooseSet($index)"
+        >
+          {{ t().wordRegistration.setName }} {{ $index + 1 }}
+        </button>
+      }
+    </div>
+  </section>
+
+  <div class="callout">
+    <p>{{ t().wordRegistration.askRepeat }}</p>
+  </div>
+
+  <div class="callout callout--warn">
+    <p>{{ t().wordRegistration.repeat }}</p>
+    <p>{{ t().wordRegistration.unableRepeat }}</p>
+  </div>
+
+  <div class="step-nav">
+    <a class="btn btn--secondary" [routerLink]="backUrl()">{{ t().common.back }}</a>
+    <a class="btn" [routerLink]="nextUrl()">{{ t().wordRegistration.continue }}</a>
+  </div>
+</article>

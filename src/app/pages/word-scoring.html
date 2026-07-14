@@ -1,0 +1,46 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().wordScoring.title }}</h1>
+  <p>{{ t().wordScoring.request }}</p>
+
+  <div class="callout">
+    <p class="speech">{{ t().wordScoring.question }}</p>
+    <p>{{ t().wordScoring.writeDown }}</p>
+  </div>
+
+  <div class="callout callout--warn">
+    <p>{{ t().wordScoring.scoreBasis }}</p>
+  </div>
+
+  <section class="card" role="group" [attr.aria-label]="t().wordScoring.scoreGroupLabel">
+    <p class="group-label">{{ t().wordScoring.scoreGroupLabel }}</p>
+    <div class="score-row">
+      <button
+        type="button"
+        class="btn score-step"
+        [disabled]="state.wordPoints() === 0"
+        [attr.aria-label]="t().wordScoring.decrease"
+        (click)="add(-1)"
+      >
+        <span aria-hidden="true">−</span>
+      </button>
+      <p class="score-value" aria-live="polite">
+        {{ state.wordPoints() }} {{ t().wordScoring.of }} 3
+        <span class="visually-hidden">{{ t().wordScoring.points }}</span>
+      </p>
+      <button
+        type="button"
+        class="btn score-step"
+        [disabled]="state.wordPoints() === 3"
+        [attr.aria-label]="t().wordScoring.increase"
+        (click)="add(1)"
+      >
+        <span aria-hidden="true">+</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="step-nav">
+    <a class="btn btn--secondary" [routerLink]="backUrl()">{{ t().common.back }}</a>
+    <a class="btn" [routerLink]="nextUrl()">{{ t().wordScoring.continue }}</a>
+  </div>
+</article>

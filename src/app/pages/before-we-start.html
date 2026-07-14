@@ -1,0 +1,14 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().beforeWeStart.title }}</h1>
+
+  <ul class="check-list">
+    @for (step of t().beforeWeStart.steps; track step) {
+      <li>{{ step }}</li>
+    }
+  </ul>
+
+  <div class="step-nav">
+    <a class="btn btn--secondary" [routerLink]="backUrl()">{{ t().common.back }}</a>
+    <a class="btn" [routerLink]="nextUrl()">{{ t().beforeWeStart.ready }}</a>
+  </div>
+</article>

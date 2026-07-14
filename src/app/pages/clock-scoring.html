@@ -1,0 +1,40 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().clockScoring.title }}</h1>
+
+  <div class="callout">
+    <p>{{ t().clockScoring.correctClock }}</p>
+    <p>{{ t().clockScoring.correctHands }}</p>
+    <p>{{ t().clockScoring.handInfo }}</p>
+  </div>
+
+  <div class="callout callout--warn">
+    <p>{{ t().clockScoring.scoreBasis }}</p>
+  </div>
+
+  <fieldset class="card">
+    <legend>{{ t().clockScoring.legend }}</legend>
+    <label class="radio-option">
+      <input
+        type="radio"
+        name="clock-score"
+        [checked]="state.clockPoints() === 2"
+        (change)="setPoints(2)"
+      />
+      {{ t().clockScoring.normalOption }}
+    </label>
+    <label class="radio-option">
+      <input
+        type="radio"
+        name="clock-score"
+        [checked]="state.clockPoints() === 0"
+        (change)="setPoints(0)"
+      />
+      {{ t().clockScoring.abnormalOption }}
+    </label>
+  </fieldset>
+
+  <div class="step-nav">
+    <a class="btn btn--secondary" [routerLink]="backUrl()">{{ t().common.back }}</a>
+    <a class="btn" [routerLink]="nextUrl()">{{ t().clockScoring.continue }}</a>
+  </div>
+</article>

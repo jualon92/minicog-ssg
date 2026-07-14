@@ -1,0 +1,21 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().home.title }}</h1>
+  <p class="speech">{{ t().home.intro }}</p>
+
+  <h2>{{ t().home.whatIsApp.title }}</h2>
+  <p>{{ t().home.whatIsApp.description }}</p>
+
+  <h2>{{ t().home.whatIsMiniCog.title }}</h2>
+  <p>{{ t().home.whatIsMiniCog.description }}</p>
+
+  <h2>{{ t().home.whoIsThisFor.title }}</h2>
+  <p>{{ t().home.whoIsThisFor.description }}</p>
+
+  <div class="callout callout--warn">
+    <p>{{ t().common.disclaimer }}</p>
+  </div>
+
+  <div class="step-nav">
+    <a class="btn" [routerLink]="startUrl()">{{ t().home.start }}</a>
+  </div>
+</article>

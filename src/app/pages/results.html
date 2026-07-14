@@ -1,0 +1,36 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().results.title }}</h1>
+  <p>{{ t().results.briefDescription }}</p>
+
+  <table class="results-table">
+    <caption class="visually-hidden">{{ t().results.score }}</caption>
+    <tbody>
+      <tr>
+        <th scope="row">{{ t().results.wordRecall }}</th>
+        <td>{{ state.wordPoints() }} / 3</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ t().results.clockDrawing }}</th>
+        <td>{{ clockPoints() }} / 2</td>
+      </tr>
+      <tr>
+        <th scope="row">{{ t().results.totalScore }}</th>
+        <td>{{ state.totalPoints() }} / 5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>{{ t().results.interpretationLabel }}</h2>
+  <div class="callout">
+    <p [innerHTML]="t().results.cutPointHtml"></p>
+    <p [innerHTML]="t().results.interpretationHtml"></p>
+  </div>
+
+  <div class="callout callout--warn">
+    <p>{{ t().common.disclaimer }}</p>
+  </div>
+
+  <div class="step-nav">
+    <button type="button" class="btn" (click)="repeat()">{{ t().results.repeat }}</button>
+  </div>
+</article>

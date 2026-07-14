@@ -1,0 +1,23 @@
+<article class="page">
+  <h1 tabindex="-1">{{ t().clockDrawing.title }}</h1>
+  <p>{{ t().clockDrawing.description }}</p>
+
+  <div class="callout">
+    <p>{{ t().clockDrawing.circlePaper }}</p>
+  </div>
+
+  <p class="speech">{{ t().clockDrawing.request }}</p>
+  <p class="speech">{{ t().clockDrawing.drawHour }} {{ t().clockDrawing.clockTime }}</p>
+
+  <app-tts-button [text]="spokenText()" [lang]="lang()" />
+
+  <div class="callout callout--warn">
+    <p>{{ t().clockDrawing.repeatInfo }}</p>
+    <p>{{ t().clockDrawing.unableDraw }}</p>
+  </div>
+
+  <div class="step-nav">
+    <a class="btn btn--secondary" [routerLink]="backUrl()">{{ t().common.back }}</a>
+    <a class="btn" [routerLink]="nextUrl()">{{ t().clockDrawing.continue }}</a>
+  </div>
+</article>
