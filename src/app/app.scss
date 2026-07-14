@@ -17,11 +17,19 @@
 .brand {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.35em;
   min-height: var(--tap-target);
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-primary-dark);
   text-decoration: none;
+}
+
+.brand-tagline {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-soft);
 }
 
 .lang-switch {

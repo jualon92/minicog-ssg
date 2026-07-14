@@ -3,13 +3,11 @@
 </a>
 
 <header class="site-header">
-  <a class="brand" [routerLink]="homeUrl()">{{ t().common.appName }}</a>
-  <a
-    class="lang-switch"
-    [routerLink]="altUrl()"
-    [attr.lang]="altLang()"
-    [attr.aria-label]="t().common.languageSwitchAria"
-  >
+  <a class="brand" [routerLink]="homeUrl()">
+    {{ t().common.appName }}
+    <span class="brand-tagline">— {{ t().common.tagline }}</span>
+  </a>
+  <a class="lang-switch" [routerLink]="altUrl()" [attr.lang]="altLang()">
     {{ t().common.languageSwitch }}
   </a>
 </header>

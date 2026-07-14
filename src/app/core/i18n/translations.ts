@@ -14,9 +14,9 @@ export interface PageSeo {
 export interface Translation {
   common: {
     appName: string;
+    tagline: string;
     skipToContent: string;
     languageSwitch: string;
-    languageSwitchAria: string;
     back: string;
     disclaimer: string;
   };
@@ -104,9 +104,9 @@ export interface Translation {
 const es: Translation = {
   common: {
     appName: 'Mini-Cog',
+    tagline: 'Detección de deterioro cognitivo',
     skipToContent: 'Saltar al contenido principal',
     languageSwitch: 'English',
-    languageSwitchAria: 'Ver esta página en inglés',
     back: 'Volver',
     disclaimer:
       'Esta aplicación es una herramienta de apoyo para realizar una prueba de detección (screening). No reemplaza el diagnóstico ni la evaluación de un profesional de la salud.',
@@ -263,9 +263,9 @@ const es: Translation = {
 const en: Translation = {
   common: {
     appName: 'Mini-Cog',
+    tagline: 'Cognitive impairment screening',
     skipToContent: 'Skip to main content',
     languageSwitch: 'Español',
-    languageSwitchAria: 'View this page in Spanish',
     back: 'Go back',
     disclaimer:
       'This application is a support tool for administering a screening test. It does not replace diagnosis or evaluation by a health professional.',
