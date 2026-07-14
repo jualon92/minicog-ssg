@@ -29,9 +29,6 @@ export class App {
   private readonly doc = inject(DOCUMENT);
   private readonly injector = inject(Injector);
 
-  /** Text of the native aria-live region announcing page changes. */
-  protected readonly announcement = signal('');
-
   protected readonly lang = signal<Lang>('es');
   protected readonly page = signal<PageKey>('home');
   protected readonly t = computed(() => TRANSLATIONS[this.lang()]);
@@ -69,12 +66,12 @@ export class App {
     this.seo.apply(page, lang);
 
     // On the initial load the browser handles focus; only manage it on
-    // subsequent in-app navigations (move focus to the new h1 + announce).
+    // subsequent in-app navigations (move focus to the new h1, which
+    // also makes screen readers announce the new page).
     if (this.firstNavigation) {
       this.firstNavigation = false;
       return;
     }
-    this.announcement.set(TRANSLATIONS[lang].seo[page].title);
     afterNextRender(
       () => this.doc.querySelector<HTMLHeadingElement>('main h1')?.focus(),
       { injector: this.injector },
