@@ -11,13 +11,13 @@
     <p>{{ t().wordScoring.scoreBasis }}</p>
   </div>
 
-  <section class="card" role="group" [attr.aria-label]="t().wordScoring.scoreGroupLabel">
-    <p class="group-label">{{ t().wordScoring.scoreGroupLabel }}</p>
+  <section class="card" role="group" aria-labelledby="score-group-label">
+    <p class="group-label" id="score-group-label">{{ t().wordScoring.scoreGroupLabel }}</p>
     <div class="score-row">
       <button
         type="button"
         class="btn score-step"
-        [disabled]="state.wordPoints() === 0"
+        [attr.aria-disabled]="state.wordPoints() === 0"
         [attr.aria-label]="t().wordScoring.decrease"
         (click)="add(-1)"
       >
@@ -30,7 +30,7 @@
       <button
         type="button"
         class="btn score-step"
-        [disabled]="state.wordPoints() === 3"
+        [attr.aria-disabled]="state.wordPoints() === 3"
         [attr.aria-label]="t().wordScoring.increase"
         (click)="add(1)"
       >

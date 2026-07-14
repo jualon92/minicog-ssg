@@ -1,10 +1,5 @@
 @if (ready() && tts.available) {
-  <button
-    type="button"
-    class="btn btn--secondary"
-    [attr.aria-pressed]="pressed()"
-    (click)="toggle()"
-  >
+  <button type="button" class="btn btn--secondary" (click)="toggle()">
     <svg
       aria-hidden="true"
       width="22"

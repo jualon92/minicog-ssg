@@ -159,9 +159,16 @@ h1[tabindex='-1']:focus-visible {
   color: var(--color-primary-dark);
 }
 
-.btn:disabled {
+/* aria-disabled keeps the button focusable (no keyboard focus loss when a
+   limit is reached); the click handler is a no-op at the limits. */
+.btn:disabled,
+.btn[aria-disabled='true'] {
   opacity: 0.55;
   cursor: not-allowed;
+}
+
+.btn[aria-disabled='true']:hover {
+  background: var(--color-primary);
 }
 
 /* ---- Cards / callouts (replace p-card / p-messages) ---- */
