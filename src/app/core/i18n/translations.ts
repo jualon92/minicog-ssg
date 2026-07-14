@@ -1,9 +1,14 @@
 import { Lang, PageKey } from './language';
 
 /*
- * Build-time translations. Clinical texts are ported verbatim from the
- * original app (jualon92/miniCog-ionic, src/assets/i18n). Do not rewrite
- * clinical content without explicit approval.
+ * Build-time translations. Clinical texts follow the official Mini-Cog©
+ * instrument verbatim; patient-facing quotes are literal. Sources:
+ * - Spanish: https://mini-cog.com/wp-content/uploads/2022/09/SPANISH-Mini-Cog.pdf
+ * - English: https://mini-cog.com/wp-content/uploads/2022/04/Standardized-English-Mini-Cog-1-19-16-EN_v1-low-1-2.pdf
+ * Do not rewrite clinical content without checking those PDFs.
+ * Known defect in the Spanish PDF: the clock-scoring sentence is truncated
+ * ("...posiciones de anclaje y 2 (11:10)"); the missing fragment about the
+ * hands was completed from the English PDF.
  */
 
 export interface PageSeo {
@@ -47,7 +52,8 @@ export interface Translation {
     chooseSet: string;
     setName: string;
     askRepeat: string;
-    repeat: string;
+    sayNow: string;
+    altListNote: string;
     unableRepeat: string;
     continue: string;
   };
@@ -56,8 +62,7 @@ export interface Translation {
     description: string;
     circlePaper: string;
     request: string;
-    drawHour: string;
-    clockTime: string;
+    setHands: string;
     repeatInfo: string;
     unableDraw: string;
     continue: string;
@@ -142,50 +147,55 @@ const es: Translation = {
       'Asegúrate de que la persona esté prestando atención',
       'Explica que le vas a pedir que recuerde tres palabras y dibuje un reloj',
       'Encuentra un lugar tranquilo sin distracciones',
+      'Cuida que la persona no vea la pantalla: las palabras de la prueba aparecen escritas',
+      'Haz la prueba en el idioma que la persona domina mejor',
+      'Evita hacer la prueba si la persona está enferma, cansada o estresada ese día',
     ],
     ready: 'Estoy listo',
   },
   wordRegistration: {
-    title: 'Recordar 3 Palabras',
+    title: 'Registro de tres palabras',
     description:
-      'En esta parte del test, le pedirás a la persona que recuerde tres palabras. Dirás las palabras una a una y le pedirás a la persona que las repita. Después de haber dicho las tres palabras, pídele a la persona que las repita nuevamente. Si la persona puede recordar las tres palabras, pasará a la siguiente parte del test.',
-    look: 'Mire a la persona directamente y diga:',
+      'En esta parte de la prueba, le pedirás a la persona que repita y trate de recordar tres palabras. Di las tres palabras, pídele que las repita y luego continúa con el Paso 2 (dibujo de reloj).',
+    look: 'Mire directamente a la persona y dígale:',
     pleaseListen:
-      '“Por favor, escuche con atención. Voy a decir tres palabras que quiero que repita ahora y trate de recordar.”',
+      '“Escuche con cuidado. Voy a decir tres palabras que quiero que usted repita ahora y trate de recordar.”',
     wordsAre: 'Las palabras son:',
     wordSets: [
-      ['Banana', 'Sol', 'Silla'],
+      ['Plátano', 'Amanecer', 'Silla'],
       ['Líder', 'Temporada', 'Mesa'],
-      ['Pueblo', 'Cocina', 'Bebe'],
+      ['Pueblo', 'Cocina', 'Dedo'],
+      ['Río', 'Nación', 'Bebé'],
+      ['Hija', 'Jardín', 'Retrato'],
+      ['Capitán', 'Cielo', 'Montaña'],
     ],
     chooseSet: 'Elegir otra lista de palabras',
-    setName: 'Lista',
-    askRepeat: 'Después de haber dicho las tres palabras, pida a la persona que las repita.',
-    repeat: 'Repite las palabras si es necesario, pero no proporciones información adicional ni pistas.',
+    setName: 'Versión',
+    askRepeat: 'Después de decir las tres palabras, diga:',
+    sayNow: '“Ahora repita las palabras.”',
+    altListNote:
+      'Esta lista de palabras y otras más se han utilizado en varios estudios clínicos. Si planea aplicar la prueba repetidamente, se recomienda el uso de una lista alternativa de palabras.',
     unableRepeat:
-      'Si la persona no puede repetir las palabras después de tres intentos, pasa al Paso 2 (dibujo del reloj).',
+      'Si la persona no es capaz de repetir las palabras después de tres intentos, continúe al Paso N.º 2 (Dibujo de reloj).',
     continue: 'Siguiente paso',
   },
   clockDrawing: {
-    title: 'Dibujo del Reloj',
+    title: 'Dibujo de reloj',
     description: 'Déle a la persona una hoja de papel en blanco y un bolígrafo o lápiz.',
-    circlePaper:
-      'Es aceptable proporcionar una hoja de papel con el círculo ya dibujado para la persona.',
-    request:
-      'Diga: “A continuación, quiero que dibuje un reloj para mí. Primero, ponga todos los números donde van.”',
-    drawHour: 'Cuando eso esté completo, diga: “Ahora, ponga las manecillas en las',
-    clockTime: '11 y 10.”',
-    repeatInfo: 'Repita las instrucciones según sea necesario, ya que esto no es una prueba de memoria.',
-    unableDraw: 'Pase al paso 3 si el reloj no está completo en tres minutos.',
+    circlePaper: 'Use una hoja con el círculo ya impreso para este ejercicio.',
+    request: 'Diga: “Ahora, quiero que me dibuje un reloj. Primero, coloque los números donde van.”',
+    setHands:
+      'Una vez que la persona haya terminado, diga: “Ahora, ponga las manecillas del reloj en la posición que indiquen las 11:10.”',
+    repeatInfo: 'Repita las instrucciones según sea necesario ya que esto no es una prueba de memoria.',
+    unableDraw: 'Continúe al Paso N.º 3 si la persona no lo ha completado en tres minutos.',
     continue: 'Siguiente paso',
   },
   wordScoring: {
-    title: 'Calificación del recuerdo de palabras',
-    request:
-      'Le pedirá a la persona que recuerde el conjunto de 3 palabras que le dio al comienzo de la prueba.',
+    title: 'Memoria de tres palabras',
+    request: 'Pídale a la persona que repita las tres palabras que usted dijo en el Paso N.º 1.',
     question: 'Diga: “¿Cuáles fueron las tres palabras que le pedí que recordara?”',
-    writeDown: 'Escriba las palabras que dijo la persona.',
-    scoreBasis: 'Dé 1 punto por cada palabra correcta sin pistas.',
+    writeDown: 'Registre el número de versión de la lista de palabras y las respuestas de la persona.',
+    scoreBasis: '1 punto por cada palabra que recuerde espontáneamente sin pistas.',
     scoreGroupLabel: 'Palabras correctas',
     decrease: 'Restar una palabra correcta',
     increase: 'Sumar una palabra correcta',
@@ -194,13 +204,13 @@ const es: Translation = {
     continue: 'Siguiente paso',
   },
   clockScoring: {
-    title: 'Calificación del Dibujo del Reloj',
+    title: 'Puntaje del Dibujo de reloj',
     scoreBasis:
-      '2 puntos para un reloj normal o 0 (cero) puntos para un dibujo de reloj anormal.',
+      'Reloj normal = 2 puntos. Si la persona no es capaz de dibujar un reloj o se rehúsa (anormal) = 0 puntos.',
     correctClock:
-      'Un reloj normal debe incluir todos los números (1-12), cada uno solo una vez, en el orden y dirección correctos (en el sentido de las agujas del reloj).',
-    correctHands: 'También deben estar presentes dos manecillas, una apuntando a las 11 y otra a las 2.',
-    handInfo: 'La longitud de la mano no se califica.',
+      'Un reloj normal tiene todos los números colocados en la secuencia y posición aproximadamente correctas (p. ej., 12, 3, 6 y 9 están en posiciones de anclaje), sin números faltantes ni duplicados.',
+    correctHands: 'Las manecillas apuntan a las 11 y 2 (11:10).',
+    handInfo: 'La longitud de la manecilla no se cuenta en el puntaje.',
     legend: '¿Cómo es el reloj dibujado?',
     normalOption: 'Reloj normal (2 puntos)',
     abnormalOption: 'Reloj anormal (0 puntos)',
@@ -209,15 +219,15 @@ const es: Translation = {
   results: {
     title: 'Resultados',
     briefDescription:
-      'Puntuación total = Puntuación de Recuerdo de Palabras + Puntuación de Dibujo del Reloj.',
+      'Puntaje total = Puntaje de Memoria de palabras + Puntaje de Dibujo de reloj.',
     cutPointHtml:
-      'Un punto de corte <strong>MENOR de 3 puntos</strong> en el Mini-Cog™ ha sido validado para la detección de demencia, pero muchas personas con deterioro cognitivo clínicamente significativo obtendrán una puntuación más alta.',
+      'Se ha establecido un valor de corte de <strong>&lt; 3</strong> en la Mini-Cog™ para la detección de demencia, pero muchas personas con deterioro cognitivo clínicamente significativo tendrán una puntuación más alta.',
     interpretationHtml:
-      'Cuando se desea una mayor sensibilidad, se recomienda un punto de corte <strong>MENOR de 4</strong>, ya que puede indicar la necesidad de una evaluación adicional del estado cognitivo.',
-    interpretationLabel: 'Interpretación Puntaje total',
-    wordRecall: 'Palabras',
-    clockDrawing: 'Reloj',
-    totalScore: 'Total',
+      'Cuando se desea una mayor sensibilidad, se recomienda usar un valor de corte de <strong>&lt; 4</strong>, ya que podría indicar la necesidad de evaluaciones adicionales para determinar el estado cognitivo.',
+    interpretationLabel: 'Interpretación del puntaje total',
+    wordRecall: 'Memoria de palabras',
+    clockDrawing: 'Dibujo de reloj',
+    totalScore: 'Puntaje total',
     score: 'Puntuación',
     repeat: 'Repetir',
   },
@@ -225,7 +235,7 @@ const es: Translation = {
     home: {
       title: 'Mini-Cog — Guía paso a paso del test de detección cognitiva',
       description:
-        'Aplicación gratuita que te guía paso a paso para realizar la prueba Mini-Cog (recuerdo de 3 palabras y dibujo del reloj) con un ser querido. Herramienta de screening, no de diagnóstico.',
+        'Aplicación gratuita que te guía paso a paso para realizar la prueba Mini-Cog (recuerdo de 3 palabras y dibujo de reloj) con un ser querido. Basada en el PDF oficial de mini-cog.com. Herramienta de screening, no de diagnóstico.',
     },
     beforeWeStart: {
       title: 'Antes de comenzar — Mini-Cog',
@@ -233,29 +243,29 @@ const es: Translation = {
         'Qué necesitás antes de administrar la prueba Mini-Cog: lápiz y papel, atención de la persona y un lugar tranquilo sin distracciones.',
     },
     wordRegistration: {
-      title: 'Paso 1: Recordar 3 palabras — Mini-Cog',
+      title: 'Paso 1: Registro de tres palabras — Mini-Cog',
       description:
-        'Primer paso del test Mini-Cog: decí tres palabras y pedile a la persona que las repita y las recuerde. Instrucciones completas y listas de palabras.',
+        'Primer paso de la prueba Mini-Cog: decí tres palabras y pedile a la persona que las repita y trate de recordarlas. Instrucciones completas y las 6 versiones oficiales de listas de palabras.',
     },
     clockDrawing: {
-      title: 'Paso 2: Dibujo del reloj — Mini-Cog',
+      title: 'Paso 2: Dibujo de reloj — Mini-Cog',
       description:
-        'Segundo paso del test Mini-Cog: la persona dibuja un reloj en papel con todos los números y las manecillas marcando las 11 y 10.',
+        'Segundo paso de la prueba Mini-Cog: la persona dibuja un reloj en papel con todos los números y las manecillas en la posición que indiquen las 11:10.',
     },
     wordScoring: {
-      title: 'Paso 3: Calificar el recuerdo de palabras — Mini-Cog',
+      title: 'Paso 3: Memoria de tres palabras — Mini-Cog',
       description:
-        'Cómo puntuar el recuerdo de palabras del Mini-Cog: 1 punto por cada palabra recordada sin pistas, hasta 3 puntos.',
+        'Cómo puntuar la memoria de palabras del Mini-Cog: 1 punto por cada palabra que recuerde espontáneamente sin pistas, hasta 3 puntos.',
     },
     clockScoring: {
-      title: 'Paso 4: Calificar el dibujo del reloj — Mini-Cog',
+      title: 'Paso 4: Puntaje del dibujo de reloj — Mini-Cog',
       description:
-        'Cómo puntuar el dibujo del reloj del Mini-Cog: 2 puntos para un reloj normal, 0 puntos para un reloj anormal.',
+        'Cómo puntuar el dibujo de reloj del Mini-Cog: 2 puntos para un reloj normal, 0 puntos para un reloj anormal.',
     },
     results: {
       title: 'Resultados e interpretación — Mini-Cog',
       description:
-        'Resultado del test Mini-Cog: puntuación total de 0 a 5 y su interpretación. Un puntaje menor de 3 sugiere realizar una evaluación profesional.',
+        'Resultado de la prueba Mini-Cog: puntaje total de 0 a 5 y su interpretación. Un valor de corte de menos de 3 se ha establecido para la detección de demencia.',
     },
   },
 };
@@ -301,49 +311,54 @@ const en: Translation = {
       'Make sure the person is paying attention',
       "Explain that you'll ask them to remember three words and draw a clock",
       'Find a quiet place with no distractions',
+      'Keep the screen out of the person’s view: the test words appear written on it',
+      'Do the test in the language the person knows best',
+      'Avoid testing if the person is sick, tired, or stressed that day',
     ],
     ready: "I'm ready",
   },
   wordRegistration: {
-    title: 'Remember 3 Words',
+    title: 'Three Word Registration',
     description:
-      'In this part of the test, you will ask the person to remember three words. Say the words one by one and ask the person to repeat them. After you have said all three words, ask the person to repeat them again. If the person can recall all three words, proceed to the next part of the test.',
+      'In this part of the test, you will ask the person to repeat and try to remember three words. Say the three words, ask the person to repeat them, then continue to Step 2 (clock drawing).',
     look: 'Look directly at the person and say:',
     pleaseListen:
-      '“Please listen carefully. I am going to say three words that I want you to repeat now and try to remember.”',
+      '“Please listen carefully. I am going to say three words that I want you to repeat back to me now and try to remember.”',
     wordsAre: 'The words are:',
     wordSets: [
-      ['Banana', 'Sun', 'Chair'],
+      ['Banana', 'Sunrise', 'Chair'],
       ['Leader', 'Season', 'Table'],
-      ['Town', 'Kitchen', 'Baby'],
+      ['Village', 'Kitchen', 'Baby'],
+      ['River', 'Nation', 'Finger'],
+      ['Captain', 'Garden', 'Picture'],
+      ['Daughter', 'Heaven', 'Mountain'],
     ],
     chooseSet: 'Choose another word list',
-    setName: 'List',
-    askRepeat: 'After saying the three words, ask the person to repeat them.',
-    repeat: 'Repeat the words if necessary, but do not provide additional information or hints.',
+    setName: 'Version',
+    askRepeat: 'After saying the three words, say:',
+    sayNow: '“Please say them for me now.”',
+    altListNote:
+      'This and other word lists have been used in one or more clinical studies. For repeated administrations, use of an alternative word list is recommended.',
     unableRepeat:
-      'If the person cannot repeat the words after three attempts, move to Step 2 (clock drawing).',
+      'If the person is unable to repeat the words after three attempts, move on to Step 2 (clock drawing).',
     continue: 'Next step',
   },
   clockDrawing: {
     title: 'Clock Drawing',
     description: 'Give the person a blank piece of paper and a pen or pencil.',
-    circlePaper:
-      'It is acceptable to provide a piece of paper with a pre-drawn circle for the person.',
-    request:
-      'Say: “Next, I want you to draw a clock for me. First, put all the numbers where they belong.”',
-    drawHour: 'When that is complete, say: “Now, set the hands to',
-    clockTime: '10 past 11.”',
-    repeatInfo: 'Repeat instructions as needed, as this is not a memory test.',
-    unableDraw: 'Move to Step 3 if the clock is incomplete after three minutes.',
+    circlePaper: 'Use a sheet with a preprinted circle for this exercise.',
+    request: 'Say: “Next, I want you to draw a clock for me. First, put in all of the numbers where they go.”',
+    setHands: 'When that is completed, say: “Now, set the hands to 10 past 11.”',
+    repeatInfo: 'Repeat instructions as needed as this is not a memory test.',
+    unableDraw: 'Move to Step 3 if the clock is not complete within three minutes.',
     continue: 'Next step',
   },
   wordScoring: {
-    title: 'Scoring Word Recall',
-    request: 'You will ask the person to recall the set of 3 words given at the beginning of the test.',
+    title: 'Three Word Recall',
+    request: 'Ask the person to recall the three words you stated in Step 1.',
     question: 'Say: “What were the three words I asked you to remember?”',
-    writeDown: 'Write down the words the person said.',
-    scoreBasis: 'Give 1 point for each correct word without hints.',
+    writeDown: 'Record the word list version number and the person’s answers.',
+    scoreBasis: '1 point for each word spontaneously recalled without cueing.',
     scoreGroupLabel: 'Correct words',
     decrease: 'Remove one correct word',
     increase: 'Add one correct word',
@@ -352,11 +367,11 @@ const en: Translation = {
     continue: 'Next step',
   },
   clockScoring: {
-    title: 'Scoring Clock Drawing',
-    scoreBasis: '2 points for a normal clock or 0 points for an abnormal clock drawing.',
+    title: 'Clock Draw Score',
+    scoreBasis: 'Normal clock = 2 points. Inability or refusal to draw a clock (abnormal) = 0 points.',
     correctClock:
-      'A normal clock should include all numbers (1-12), each only once, in the correct order and direction (clockwise).',
-    correctHands: 'There should also be two hands, one pointing to 11 and the other to 2.',
+      'A normal clock has all numbers placed in the correct sequence and approximately correct position (e.g., 12, 3, 6 and 9 are in anchor positions) with no missing or duplicate numbers.',
+    correctHands: 'Hands are pointing to the 11 and 2 (11:10).',
     handInfo: 'Hand length is not scored.',
     legend: 'How does the drawn clock look?',
     normalOption: 'Normal clock (2 points)',
@@ -365,15 +380,15 @@ const en: Translation = {
   },
   results: {
     title: 'Results',
-    briefDescription: 'Total Score = Word Recall Score + Clock Drawing Score.',
+    briefDescription: 'Total score = Word Recall score + Clock Draw score.',
     cutPointHtml:
-      'A <strong>score of less than 3</strong> on the Mini-Cog™ has been validated for dementia detection, but many people with significant cognitive impairment may score higher.',
+      'A cut point of <strong>&lt;3</strong> on the Mini-Cog™ has been validated for dementia screening, but many individuals with clinically meaningful cognitive impairment will score higher.',
     interpretationHtml:
-      'For greater sensitivity, a <strong>score of less than 4</strong> is recommended, as it may indicate the need for further cognitive evaluation.',
-    interpretationLabel: 'Total Score Interpretation',
-    wordRecall: 'Words',
-    clockDrawing: 'Clock',
-    totalScore: 'Total',
+      'When greater sensitivity is desired, a cut point of <strong>&lt;4</strong> is recommended as it may indicate a need for further evaluation of cognitive status.',
+    interpretationLabel: 'Total score interpretation',
+    wordRecall: 'Word Recall',
+    clockDrawing: 'Clock Draw',
+    totalScore: 'Total score',
     score: 'Score',
     repeat: 'Repeat',
   },
@@ -381,7 +396,7 @@ const en: Translation = {
     home: {
       title: 'Mini-Cog — Step-by-step cognitive screening test guide',
       description:
-        'Free application that guides you step by step to administer the Mini-Cog test (3-word recall and clock drawing) with a loved one. Screening tool, not a diagnostic tool.',
+        'Free application that guides you step by step to administer the Mini-Cog test (3-word recall and clock drawing) with a loved one. Based on the official PDF from mini-cog.com. Screening tool, not a diagnostic tool.',
     },
     beforeWeStart: {
       title: 'Before we begin — Mini-Cog',
@@ -389,29 +404,29 @@ const en: Translation = {
         'What you need before administering the Mini-Cog test: pencil and paper, the person’s attention and a quiet place with no distractions.',
     },
     wordRegistration: {
-      title: 'Step 1: Remember 3 words — Mini-Cog',
+      title: 'Step 1: Three Word Registration — Mini-Cog',
       description:
-        'First step of the Mini-Cog test: say three words and ask the person to repeat and remember them. Full instructions and word lists.',
+        'First step of the Mini-Cog test: say three words and ask the person to repeat them and try to remember them. Full instructions and the 6 official word list versions.',
     },
     clockDrawing: {
-      title: 'Step 2: Clock drawing — Mini-Cog',
+      title: 'Step 2: Clock Drawing — Mini-Cog',
       description:
         'Second step of the Mini-Cog test: the person draws a clock on paper with all the numbers and the hands set to 10 past 11.',
     },
     wordScoring: {
-      title: 'Step 3: Scoring word recall — Mini-Cog',
+      title: 'Step 3: Three Word Recall — Mini-Cog',
       description:
-        'How to score Mini-Cog word recall: 1 point for each word recalled without hints, up to 3 points.',
+        'How to score Mini-Cog word recall: 1 point for each word spontaneously recalled without cueing, up to 3 points.',
     },
     clockScoring: {
-      title: 'Step 4: Scoring the clock drawing — Mini-Cog',
+      title: 'Step 4: Clock Draw Score — Mini-Cog',
       description:
         'How to score the Mini-Cog clock drawing: 2 points for a normal clock, 0 points for an abnormal clock.',
     },
     results: {
       title: 'Results and interpretation — Mini-Cog',
       description:
-        'Mini-Cog test result: total score from 0 to 5 and its interpretation. A score below 3 suggests further professional evaluation.',
+        'Mini-Cog test result: total score from 0 to 5 and its interpretation. A cut point of less than 3 has been validated for dementia screening.',
     },
   },
 };

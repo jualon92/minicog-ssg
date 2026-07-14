@@ -193,11 +193,10 @@ h1[tabindex='-1']:focus-visible {
   background: var(--color-warn-bg);
 }
 
-/* Spoken text the tester reads aloud. */
+/* Spoken text the tester reads aloud (quotation marks live in the copy). */
 .speech {
   font-size: var(--text-lg);
   font-weight: 600;
-  quotes: '\201C' '\201D';
 }
 
 /* ---- Page layout ---- */

@@ -17,7 +17,7 @@ export class ClockDrawingPage {
   protected readonly t = computed(() => TRANSLATIONS[this.lang()]);
   protected readonly spokenText = computed(() => {
     const c = this.t().clockDrawing;
-    return `${c.request} ${c.drawHour} ${c.clockTime}`;
+    return `${c.request} ${c.setHands}`;
   });
   protected readonly backUrl = computed(() => pageUrl('wordRegistration', this.lang()));
   protected readonly nextUrl = computed(() => pageUrl('wordScoring', this.lang()));

@@ -16,28 +16,30 @@
 
   <app-tts-button [text]="spokenText()" [lang]="lang()" />
 
-  <section class="card" role="group" [attr.aria-label]="t().wordRegistration.chooseSet">
-    <p class="group-label">{{ t().wordRegistration.chooseSet }}</p>
+  <fieldset class="card">
+    <legend>{{ t().wordRegistration.chooseSet }}</legend>
+    <p>{{ t().wordRegistration.altListNote }}</p>
     <div class="option-row">
       @for (set of t().wordRegistration.wordSets; track $index) {
-        <button
-          type="button"
-          class="btn btn--secondary"
-          [attr.aria-pressed]="state.wordSetIndex() === $index"
-          (click)="chooseSet($index)"
-        >
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="word-set"
+            [checked]="state.wordSetIndex() === $index"
+            (change)="chooseSet($index)"
+          />
           {{ t().wordRegistration.setName }} {{ $index + 1 }}
-        </button>
+        </label>
       }
     </div>
-  </section>
+  </fieldset>
 
   <div class="callout">
     <p>{{ t().wordRegistration.askRepeat }}</p>
+    <p class="speech">{{ t().wordRegistration.sayNow }}</p>
   </div>
 
   <div class="callout callout--warn">
-    <p>{{ t().wordRegistration.repeat }}</p>
     <p>{{ t().wordRegistration.unableRepeat }}</p>
   </div>
 

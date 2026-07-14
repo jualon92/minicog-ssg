@@ -21,9 +21,10 @@ export class WordRegistrationPage {
   protected readonly words = computed(
     () => this.t().wordRegistration.wordSets[this.state.wordSetIndex()],
   );
-  protected readonly spokenText = computed(
-    () => `${this.t().wordRegistration.pleaseListen} ${this.words().join(', ')}`,
-  );
+  protected readonly spokenText = computed(() => {
+    const w = this.t().wordRegistration;
+    return `${w.pleaseListen} ${this.words().join(', ')}. ${w.sayNow}`;
+  });
   protected readonly backUrl = computed(() => pageUrl('beforeWeStart', this.lang()));
   protected readonly nextUrl = computed(() => pageUrl('clockDrawing', this.lang()));
 
