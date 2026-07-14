@@ -88,6 +88,7 @@ export interface Translation {
     correctClock: string;
     correctHands: string;
     handInfo: string;
+    exampleAlt: string;
     legend: string;
     normalOption: string;
     abnormalOption: string;
@@ -233,6 +234,8 @@ const es: Translation = {
       'Un reloj normal tiene todos los números colocados en la secuencia y posición aproximadamente correctas (p. ej., 12, 3, 6 y 9 están en posiciones de anclaje), sin números faltantes ni duplicados.',
     correctHands: 'Las manecillas apuntan a las 11 y 2 (11:10).',
     handInfo: 'La longitud de la manecilla no se cuenta en el puntaje.',
+    exampleAlt:
+      'Ejemplos de relojes dibujados a mano. Reloj normal: los doce números en orden y las manecillas marcando las 11:10. Reloj anormal: las manecillas apuntan a una hora incorrecta. Reloj anormal: falta un número.',
     legend: '¿Cómo es el reloj dibujado?',
     normalOption: 'Reloj normal (2 puntos)',
     abnormalOption: 'Reloj anormal (0 puntos)',
@@ -415,6 +418,8 @@ const en: Translation = {
       'A normal clock has all numbers placed in the correct sequence and approximately correct position (e.g., 12, 3, 6 and 9 are in anchor positions) with no missing or duplicate numbers.',
     correctHands: 'Hands are pointing to the 11 and 2 (11:10).',
     handInfo: 'Hand length is not scored.',
+    exampleAlt:
+      'Examples of hand-drawn clocks. Normal clock: all twelve numbers in order and the hands pointing to 11:10. Abnormal clock: the hands point to a wrong time. Abnormal clock: a number is missing.',
     legend: 'How does the drawn clock look?',
     normalOption: 'Normal clock (2 points)',
     abnormalOption: 'Abnormal clock (0 points)',

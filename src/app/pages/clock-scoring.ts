@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Lang, pageUrl } from '../core/i18n/language';
@@ -6,7 +7,7 @@ import { TestState } from '../core/test-state';
 
 @Component({
   selector: 'app-clock-scoring',
-  imports: [RouterLink],
+  imports: [RouterLink, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './clock-scoring.html',
   styleUrl: './clock-scoring.scss',
